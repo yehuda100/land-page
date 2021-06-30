@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800&family=K2D:wght@100;500;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@900&family=K2D:wght@500;800&display=swap');
 
 body {
     background-color: #f1f1f1;
@@ -12,47 +12,52 @@ body {
 }
 
 h1 {
-    color: #000000;
-    margin-top: .8em;
-    padding: 0;
+    color: #131313;
+    margin-top: 2em;
+    padding: 0 .5em;
     font-family: Big Shoulders Stencil Display;
-    font-size: 3.5em;
-    font-weight: 800;
+    font-size: 4em;
+    font-weight: 900;
     word-spacing: .1em;
-    text-shadow: 1px 1px #646464
+    text-shadow: .03em -.03em #979797
 }
 
 h2 {
     color: #4a4a4a;
-
+    margin-bottom: 3em;
     padding: .2em;
-    font-size: 1.5em;
-    font-weight: 500;
+    font-size: 2em;
+    font-weight: 800;
 }
 
 h2 a{
     color: #6B63B9;
+    font-weight: 800;
+    text-decoration: none;
 }
 
 .github {
-    margin: 2em;
+    margin-bottom: 3em;
 }
 
 .telegram a{
     background-color: #0088cc;
     color: #ffffff;
+    font-weight: 800;
     text-decoration: none;
+    padding-bottom: .5em;
     padding: .2em .5em;
-    font-size: 1.4em;
+    font-size: 1.8em;
     border-radius: 1em;
 }
 
 .github a{
     background-color: #6e5494;
     color: #ffffff;
+    font-weight: 800;
     text-decoration: none;
     padding: .2em .5em;
-    font-size: 1em;
+    font-size: 1.4em;
     border-radius: 1em;
 }
 
