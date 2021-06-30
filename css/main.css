@@ -36,8 +36,8 @@ h2 a{
     text-decoration: none;
 }
 
-.github {
-    margin-bottom: 3em;
+.telegram {
+    margin-bottom: 5em;
 }
 
 .telegram a{
@@ -51,6 +51,9 @@ h2 a{
     border-radius: 1em;
 }
 
+.github {
+    margin-bottom: 3em;
+}
 .github a{
     background-color: #6e5494;
     color: #ffffff;
