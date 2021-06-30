@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@800&family=K2D:wght@100;500;800&display=swap');
+
+body {
+    background-color: #f1f1f1;
+    margin: 0;
+    font-family: K2D;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+    color: #000000;
+    margin-top: .8em;
+    padding: 0;
+    font-family: Big Shoulders Stencil Display;
+    font-size: 3.5em;
+    font-weight: 800;
+    word-spacing: .1em;
+    text-shadow: 1px 1px #646464
+}
+
+h2 {
+    color: #4a4a4a;
+
+    padding: .2em;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+h2 a{
+    color: #6B63B9;
+}
+
+.github {
+    margin: 2em;
+}
+
+.telegram a{
+    background-color: #0088cc;
+    color: #ffffff;
+    text-decoration: none;
+    padding: .2em .5em;
+    font-size: 1.4em;
+    border-radius: 1em;
+}
+
+.github a{
+    background-color: #6e5494;
+    color: #ffffff;
+    text-decoration: none;
+    padding: .2em .5em;
+    font-size: 1em;
+    border-radius: 1em;
+}
+
+
+img {
+    height: auto;
+    width: 1.4em;
+    margin: 0 .3em -.3em 0;
+}
+
+
+a:hover{
+    color: #414141;
+}
+
+/* by: t.me/yehuda100 */
