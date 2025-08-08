@@ -30,13 +30,20 @@
         }
 
         .robot {
-            font-size: 4rem;
-            animation: bounce 2s infinite;
-            margin-bottom: 1rem;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0; /* Reduced from default margin */
+        }
+
+        .robot img {
+            width: 20vw;
+            height: auto;
+            max-width: 400px; /* Added max-width for better control */
+            display: block;
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: 800;
             margin-bottom: 1.2rem;
             background: linear-gradient(45deg, #fff, #f0f0f0);
@@ -46,16 +53,22 @@
         }
 
         .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.6rem;
+            margin-bottom: 1rem; /* Reduced margin */
             opacity: 0.9;
         }
 
-        .joke {
-            font-size: 1rem;
+        .rotating-tagline {
+            font-size: 1.4rem;
             margin-bottom: 2.5rem;
             opacity: 0.8;
             font-style: italic;
+            min-height: 1.5rem; /* Prevents layout shift */
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .rotating-tagline.fade-out {
+            opacity: 0.3;
         }
 
         .links {
@@ -114,18 +127,6 @@
             }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
         @media (max-width: 600px) {
             h1 {
                 font-size: 2.2rem;
@@ -140,6 +141,10 @@
             .btn {
                 width: 200px;
                 justify-content: center;
+            }
+            .robot img {
+                width: 30vw;
+                max-width: 120px;
             }
         }
 
@@ -157,7 +162,7 @@
             position: absolute;
             font-size: 2rem;
             opacity: 0.1;
-            animation: float 8s infinite linear;
+            animation: float 15s infinite linear;
         }
 
         @keyframes float {
@@ -184,9 +189,12 @@
     </div>
 
     <div class="container">
-        <div class="robot">🤖</div>
+        <div class="robot">
+            <img src="imgs/bot.svg" alt="Bot">
+        </div>
         <h1>Bot Shelter</h1>
         <p class="subtitle">This is home for my bots, please leave quietly</p>
+        <p class="rotating-tagline" id="tagline">Do not disturb their sleep().</p>
         
         <div class="links">
             <a href="https://github.com/yehuda100" class="btn github">
@@ -201,6 +209,36 @@
     </div>
 
     <script>
+        // Rotating taglines
+        const taglines = [
+            "Do not disturb their sleep().",
+            "No logging after midnight.",
+            "They're dreaming in JSON.",
+            "Go code yourself.",
+            "Robots need coffee too.",
+            "Shhh… compiling memories."
+        ];
+        
+        let currentTaglineIndex = 0;
+        const taglineElement = document.getElementById('tagline');
+
+        function rotateTagline() {
+            // Add fade out effect
+            taglineElement.classList.add('fade-out');
+            
+            setTimeout(() => {
+                // Change text
+                currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
+                taglineElement.textContent = taglines[currentTaglineIndex];
+                
+                // Remove fade out effect
+                taglineElement.classList.remove('fade-out');
+            }, 150); // Half of the transition duration
+        }
+
+        // Start rotating taglines every 5 seconds
+        setInterval(rotateTagline, 5000);
+
         // Add some extra floating emojis randomly
         function createFloatingEmoji() {
             const emojis = ['🤖', '💬', '⚡', '🚀', '💻', '🎯', '⚙️', '🔧', '✨'];
@@ -208,7 +246,7 @@
             emoji.className = 'emoji';
             emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
             emoji.style.left = Math.random() * 100 + '%';
-            emoji.style.animationDuration = (Math.random() * 5 + 8) + 's';
+            emoji.style.animationDuration = (Math.random() * 5 + 15) + 's';
             emoji.style.animationDelay = '0s';
             
             document.querySelector('.floating-emojis').appendChild(emoji);
