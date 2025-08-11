@@ -65,11 +65,21 @@
             opacity: 0.8;
             font-style: italic;
             min-height: 1.5rem; /* Prevents layout shift */
-            transition: opacity 0.3s ease-in-out;
+            display: inline-block;
+            position: relative;
+            transition: transform 0.4s cubic-bezier(.77,0,.18,1), opacity 0.3s;
+            will-change: transform, opacity;
         }
 
-        .rotating-tagline.fade-out {
-            opacity: 0.3;
+        .rotating-tagline.slide-out {
+            opacity: 0;
+            transform: translateX(-60px) scale(0.95);
+        }
+
+        .rotating-tagline.slide-in {
+            opacity: 0;
+            transform: translateX(60px) scale(0.95);
+            animation: slideInTagline 0.4s forwards cubic-bezier(.77,0,.18,1);
         }
 
         .links {
@@ -117,14 +127,14 @@
             background: rgba(0, 136, 204, 0.9);
         }
 
-        @keyframes fadeInUp {
+        @keyframes slideInTagline {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateX(60px) scale(0.7);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateX(0) scale(1);
             }
         }
 
@@ -224,17 +234,22 @@
         const taglineElement = document.getElementById('tagline');
 
         function rotateTagline() {
-            // Add fade out effect
-            taglineElement.classList.add('fade-out');
+            // Slide out current tagline
+            taglineElement.classList.add('slide-out');
+            taglineElement.classList.remove('slide-in');
             
             setTimeout(() => {
-                // Change text
+                // Change text and prepare for slide-in
                 currentTaglineIndex = (currentTaglineIndex + 1) % taglines.length;
                 taglineElement.textContent = taglines[currentTaglineIndex];
+                taglineElement.classList.remove('slide-out');
+                taglineElement.classList.add('slide-in');
                 
-                // Remove fade out effect
-                taglineElement.classList.remove('fade-out');
-            }, 150); // Half of the transition duration
+                // Remove slide-in after animation completes
+                setTimeout(() => {
+                    taglineElement.classList.remove('slide-in');
+                }, 400);
+            }, 350);
         }
 
         // Start rotating taglines every 5 seconds
