@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="800px" height="800px" viewBox="12 2 40 40" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- ראש -->
+  <!-- ×¨××© -->
   <rect x="18" y="16" width="28" height="20" rx="4" ry="4" fill="none" stroke="#000"/>
   
-  <!-- אנטנה -->
+  <!-- ×× ×× × -->
   <line x1="24" y1="15" x2="24" y2="12" stroke-width="2"/>
   <circle cx="24" cy="10" r="2" fill="none"/>
   <line x1="40" y1="15" x2="40" y2="10" stroke-width="2">
-    <animate attributeName="y2" values="8;15;8" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="8;13;8" dur="3s" repeatCount="indefinite"/>
     </line>
   <circle cx="40" cy="8" r="2" fill="none">
-        <animate attributeName="cy" values="6;13;6" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="cy" values="6;11;6" dur="3s" repeatCount="indefinite"/>
     </circle>
-  <!-- עיניים -->
+  <!-- ×¢×× ××× -->
   <circle cx="24" cy="24" r="2" fill="#000"/>
   <circle cx="40" cy="24" r="2" fill="#000"/>
   
-  <!-- חיוך -->
+  <!-- ×××× -->
   <path d="M26 30c2 2 10 2 12 0" fill="none"/>
 </svg>
